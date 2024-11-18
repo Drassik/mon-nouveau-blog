@@ -1,0 +1,12 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+    <h3><a href="{% url 'create_ports' %}"><button>Ajoutez une nouvelle destination</button></a></h3>
+    <h2>Nos ports: </h2>
+    {% for port in ports %}
+        <div class="billet">
+            <h2><a href="{% url 'ports_detail' pk=port.pk %}">{{ port.id_port }}</a></h2>
+            <img src="{{ port.photo.url }}" alt = "image de {{ port.id_port }}"  width="500" height="333">
+        </div>
+    {% endfor %}
+{% endblock %}

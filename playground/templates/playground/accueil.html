@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suivi des Bateaux</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css"> 
+    <link rel="stylesheet" href="{% static 'css/accueil.css' %}">
+    <style>
+        body {
+          background-color: lightblue;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <h1>Suivi des Bateaux</h1>
+        <p>Découvrez nos fabuleux bateaux et suivez leurs différents déplacements!</p>
+        <p>N'hésitez pas à voir également la liste de nos ports et y ajouter une de vos destinations préférées</p>
+    </header>
+
+    <div class="links">
+        <a href="{% url 'boats_list' %}">Liste des Bateaux</a>
+    </div>
+    <div class="links">
+        <a href="{% url 'ports_list' %}">Liste des Ports</a>
+    </div>
+
+    <div class="links">
+        <a href="{% url 'voyager' %}" > Faire une sortie </a>
+    </div> 
+    
+    <div class="links">
+        <a href="{% url 'maintenance' %}" > Réparer un bateau </a>
+    </div> 
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+</body>
+</html>

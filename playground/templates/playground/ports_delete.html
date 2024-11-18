@@ -1,0 +1,13 @@
+{% extends 'playground/base.html' %}
+
+{% block content %}
+<h2>Êtes-vous sûr de vouloir supprimer cet objet?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmer la suppression</button>
+</form>
+
+<a href="{% url 'ports_list' %}">Annuler</a>
+
+{% endblock %}

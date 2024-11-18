@@ -1,0 +1,11 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<h2>Effectuer une maintenance sur un bateau :</h2>
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-outline-light">Confirmer la maintenance</button>
+    <a href="{% url 'accueil' %}">Retour à l'accueil</a>
+</form>
+{% endblock %}

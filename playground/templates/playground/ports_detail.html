@@ -1,0 +1,14 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1>{{ port.id_port }}</h1>
+    <h2>disponibilité : {{ port.disponibilite }}</h2>
+    <img src="{{ port.photo.url }}" alt = "image de {{ port.id_port }}"  width="500" height="333">
+    <h3><a href="{% url 'modify_ports' pk=port.pk %}">modifiez les informations de ce port</a></h3>
+    <h3><a href="{% url 'delete_ports' pk=port.pk %}">supprimez ce port</a></h3>
+    <a href="{% url 'ports_list' %}">Retour</a>
+</div>
+ 
+ 
+{% endblock %}

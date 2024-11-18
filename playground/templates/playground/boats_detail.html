@@ -1,0 +1,15 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h1>{{ bateau.id_bateau }}</h1>
+    <h2> état du bateau: {{ bateau.etat }}</h2>
+    <h2> type de bateau: {{ bateau.type }}</h2>
+    <h2> capacité: {{ bateau.capacite }}</h2>
+    <h2> A quai au port de {{ bateau.lieu.id_port }}</h2>
+    <img src="{{ bateau.photo.url }}" alt = "image de {{ bateau.id_bateau }}"  width="500" height="333">
+    <h3><a href="{% url 'modify_boats' pk=bateau.pk %}">modifiez les informations de ce bateau</a></h3>
+    <h3><a href="{% url 'delete_boats' pk=bateau.pk %}">supprimez ce bateau</a></h3>
+    <a href="{% url 'boats_list' %}">Retour</a>
+</div>
+{% endblock %}

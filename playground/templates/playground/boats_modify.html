@@ -1,0 +1,13 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+<div class="page-header">
+    <h2> Modifiez votre bateau:</h2>
+    <h1> {{ bateau.id_bateau }}</h1>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_ul }}
+        <button type="submit" class="btn btn-outline-light">OK</button>
+        <a href="{% url 'boats_list' %}">Back</a>
+    </form>
+</div>
+{% endblock %}

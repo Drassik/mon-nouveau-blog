@@ -1,0 +1,13 @@
+{% extends 'playground/base.html' %}
+{% load static %}
+{% block content %}
+    <h3><a href="{% url 'create_boats' %}"><button>Ajouter un bateau</button></a></h3>
+    <h2>Nos bateaux: </h2>
+    {% for bateau in bateaux %}
+        <div>
+            <h2><a href="{% url 'boats_detail' pk=bateau.pk %}">{{ bateau.id_bateau }}</a></h2>
+            <h2> A quai au port de {{ bateau.lieu.id_port }}</h2>
+            <img src="{{ bateau.photo.url }}" alt = "image de {{ bateau.id_bateau }}"  width="500" height="333">
+        </div>
+    {% endfor %}
+{% endblock %}
